@@ -13,6 +13,10 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.svg$/i,
+        use: ['@svgr/webpack'],
+      },
     ],
   },
   resolve: {
