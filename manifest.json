@@ -16,6 +16,9 @@
     }
   ],
   "action": {
-    "default_popup": "dist/index.html"
+    "default_popup": "dist/index.html",
+    "default_icon": {
+      "32": "assets/fin.png"
+    }
   }
 }
