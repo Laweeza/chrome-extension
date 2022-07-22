@@ -9,6 +9,8 @@ export default function Input({ values, values2, setNumber, setNumber2 }: any) {
     let a = parseInt(val);
     let b = parseInt(val2);
     setValue(a + b);
+    setNumber(a + b);
+    setNumber2(null);
   };
 
   return (
@@ -29,12 +31,10 @@ export default function Input({ values, values2, setNumber, setNumber2 }: any) {
         onClick={() => {
           setValue(null);
           setNumber(null);
-          setNumber2(null);
         }}
       >
         Clear
       </ClearButton>
-      {value ? value : ''}
     </div>
   );
 }

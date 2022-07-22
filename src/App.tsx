@@ -24,6 +24,8 @@ export default function App() {
         values2={number2 ? number2 : ''}
         setNumber={setNumber}
         setNumber2={setNumber2}
+        handleInputChange={handleInputChange}
+        handleInputChange2={handleInputChange2}
       />
     </Container>
   );
