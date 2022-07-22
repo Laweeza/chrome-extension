@@ -1,28 +1,25 @@
 import * as React from 'react';
-import { MouseEvent } from 'react';
-import CalculatorScreen from './components/CalculatorScreen';
+import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
-import Sad from '../assets/sad.svg';
+import Input from './components/Input';
 
 export default function App() {
-  const handleOnEnter = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    alert('submitted');
+  const [number, setNumber] = useState<number>(null);
+  const [number2, setNumber2] = useState<number>(null);
+
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setNumber(parseInt(e.target.value));
+  };
+
+  const handleInputChange2 = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setNumber2(parseInt(e.target.value));
   };
 
   return (
     <Container>
-      <CalculatorScreen />
-
-      <Sad />
-      <EnterButton
-        type='submit'
-        className='enter_btn'
-        aria-label='enter button'
-        onClick={handleOnEnter}
-      >
-        Enter
-      </EnterButton>
+      <Screen value={number ? number : ''} onChange={handleInputChange} />
+      <Screen2 value={number2 ? number2 : ''} onChange={handleInputChange2} />
+      <Input values={number ? number : ''} values2={number2 ? number2 : ''} />
     </Container>
   );
 }
@@ -39,21 +36,13 @@ const Container = styled.div`
   margin-right: auto;
 `;
 
-const EnterButton = styled.button`
-  position: absolute;
+const Screen = styled.textarea`
   border: none;
-  border-radius: 50%;
-  color: #4ac0ee;
-  top: 35%;
-  left: 15%;
-  height: 80px;
-  width: 80px;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-
-  &:hover {
-    background-color: #4ac0ee;
-    color: white;
-  }
+  background-color: #a0eec0;
+  border-radius: inherit;
+  min-width: calc(100% - 280px);
+  max-height: 150px;
+  margin-top: 20px;
 `;
+
+const Screen2 = styled(Screen)``;
