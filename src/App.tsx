@@ -19,7 +19,12 @@ export default function App() {
     <Container>
       <Screen value={number ? number : ''} onChange={handleInputChange} />
       <Screen2 value={number2 ? number2 : ''} onChange={handleInputChange2} />
-      <Input values={number ? number : ''} values2={number2 ? number2 : ''} />
+      <Input
+        values={number ? number : ''}
+        values2={number2 ? number2 : ''}
+        setNumber={setNumber}
+        setNumber2={setNumber2}
+      />
     </Container>
   );
 }

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-export default function Input(props: any) {
-  const [value, setValue] = useState<number>(0);
+export default function Input({ values, values2, setNumber, setNumber2 }: any) {
+  const [value, setValue] = useState<number>(null);
 
   const addNum = (val: string, val2: string) => {
     let a = parseInt(val);
@@ -12,17 +12,30 @@ export default function Input(props: any) {
   };
 
   return (
-    <>
+    <div>
       <EnterButton
         type='submit'
         className='enter_btn'
         aria-label='enter button'
-        onClick={() => addNum(props.values, props.values2)}
+        onClick={() => addNum(values, values2)}
       >
         Enter
       </EnterButton>
+
+      <ClearButton
+        type='submit'
+        className='clear_btn'
+        aria-label='clear button'
+        onClick={() => {
+          setValue(null);
+          setNumber(null);
+          setNumber2(null);
+        }}
+      >
+        Clear
+      </ClearButton>
       {value ? value : ''}
-    </>
+    </div>
   );
 }
 
@@ -43,4 +56,9 @@ const EnterButton = styled.button`
     background-color: #4ac0ee;
     color: white;
   }
+`;
+
+const ClearButton = styled(EnterButton)`
+  top: 35%;
+  left: 45%;
 `;
