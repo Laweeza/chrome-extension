@@ -13,7 +13,8 @@ export default function App() {
   return (
     <Container>
       <CalculatorScreen />
-      {/* <Sad /> */}
+
+      <Sad />
       <EnterButton
         type='submit'
         className='enter_btn'

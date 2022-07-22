@@ -13,7 +13,7 @@ export default function CalculatorScreen() {
 }
 
 const Screen = styled.textarea`
-  border: solid #65e2ae;
+  border: none;
   background-color: #a0eec0;
   border-radius: inherit;
   min-width: calc(100% - 70px);
