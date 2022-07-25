@@ -1,3 +1,1 @@
-# Google Chrome Extension Calculator Study
-
-## A mathbox
+## Mathbox - A Google Chrome Extension Study
