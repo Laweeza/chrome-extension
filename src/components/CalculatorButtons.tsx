@@ -36,6 +36,8 @@ export const CalculatorButtons = () => {
             </StyledButton>
           );
         })}
+      </ButtonRow>
+      <OperatorContainer>
         <StyledButton
           onClick={() => {
             if (!operator) {
@@ -91,7 +93,7 @@ export const CalculatorButtons = () => {
         >
           {'<='}
         </StyledButton>
-      </ButtonRow>
+      </OperatorContainer>
     </ButtonContainer>
   );
 };
@@ -101,6 +103,12 @@ const ButtonContainer = styled.div`
   width: inherit;
   justify-content: space-evenly;
   margin-top: 20px;
+`;
+
+const OperatorContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 const ButtonRow = styled.div`
@@ -113,4 +121,6 @@ const StyledButton = styled.button`
   border-radius: 50%;
   padding: 20px;
   border: none;
+  width: 55px;
+  height: 55px;
 `;
