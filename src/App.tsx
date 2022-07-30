@@ -3,11 +3,13 @@ import { RecoilRoot } from 'recoil';
 import Screen from './components/Screen';
 import styled from 'styled-components';
 import { CalculatorButtons } from './components/CalculatorButtons';
+import Sad from '../assets/sad.svg';
 
 export default function App() {
   return (
     <RecoilRoot>
       <Container>
+        <Sad style={{ marginTop: '5px' }} />
         <Screen />
         <CalculatorButtons />
       </Container>
