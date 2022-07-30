@@ -14,6 +14,7 @@ export const CalculatorButtons = () => {
         {Array.from(Array(10)).map((_, i) => {
           return (
             <StyledButton
+              key={i}
               onClick={() => {
                 if (leftOperand && !operator) {
                   setLeftOperand(leftOperand + i.toString());
@@ -45,6 +46,50 @@ export const CalculatorButtons = () => {
           }}
         >
           +
+        </StyledButton>
+        <StyledButton
+          onClick={() => {
+            if (!operator) {
+              if (leftOperand) {
+                setOperator('-');
+              }
+            }
+          }}
+        >
+          -
+        </StyledButton>
+        <StyledButton
+          onClick={() => {
+            if (leftOperand && operator && rightOperand) {
+              setLeftOperand(eval(`${leftOperand}${operator}${rightOperand}`).toString());
+              setOperator(null);
+              setRightOperand(null);
+            }
+          }}
+        >
+          =
+        </StyledButton>
+        <StyledButton
+          onClick={() => {
+            setLeftOperand(null);
+            setOperator(null);
+            setRightOperand(null);
+          }}
+        >
+          C
+        </StyledButton>
+        <StyledButton
+          onClick={() => {
+            if (rightOperand) {
+              setRightOperand(rightOperand.slice(0, -1));
+            } else if (operator) {
+              setOperator(null);
+            } else if (leftOperand) {
+              setLeftOperand(leftOperand.slice(0, -1));
+            }
+          }}
+        >
+          {'<='}
         </StyledButton>
       </ButtonRow>
     </ButtonContainer>
